@@ -26,16 +26,20 @@ header ul li {
   margin: 0 1rem;
 }
 
-header a {
-  color: #000;
-}
-
-header a:hover {
-  color: #ffff00;
-}
-
 main {
-  margin: 7rem 0;
+  margin: 7rem auto;
   display: flex;
   justify-content: center;
+  width: 80vw;
+  font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 767px) {
+  main {
+    width: 100%;
+  }
+}
+
+footer {
+  display: none;
 }

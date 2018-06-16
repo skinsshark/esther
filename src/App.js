@@ -1,10 +1,10 @@
-import { NavLink, Switch, Route } from 'react-router-dom';
+import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
 
 import Projects from './pages/Projects';
 import Illustrations from './pages/Illustrations';
 import About from './pages/About';
-import DoesNotExist from './pages/DoesNotExist';
+// import DoesNotExist from './pages/DoesNotExist';
 
 import './App.css';
 
@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     const activeStyle = {'color': '#00f'};
     return (
-      <div>
+      <div className="app">
         <header>
           <h1>
             <NavLink to="/">
@@ -43,9 +43,13 @@ class App extends Component {
             <Route exact={true} path="/" component={Projects} />
             <Route exact={true} path="/illustrations" component={Illustrations} />
             <Route exact={true} path="/about" component={About} />
-            <Route component={DoesNotExist} />
+            <Redirect from='*' to='/' />
           </Switch>
         </main>
+
+        <footer>
+          website by <a href="https://linkedin.com/in/zhengsharon">sharon zheng</a>
+        </footer>
       </div>
     );
   }

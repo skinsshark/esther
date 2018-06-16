@@ -4,6 +4,8 @@
 
 html {
   font-size: 10px;
+  position: relative;
+  min-height: 100vh;
 }
 
 body {
@@ -11,4 +13,20 @@ body {
   padding: 0;
   font-family: sans-serif;
   font-size: 1.3rem;
+  color: #333;
+}
+
+a,
+a:focus,
+a:visited,
+a:active {
+  color: #000;
+}
+
+a:hover {
+  color: #ffff00;
+}
+
+.visible {
+  display: block;
 }
