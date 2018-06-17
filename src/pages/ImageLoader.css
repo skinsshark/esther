@@ -1,0 +1,8 @@
+.image-loader {
+  opacity: 0;
+  transition: 1s linear opacity;
+}
+
+.image-loader.loaded {
+  opacity: 1;
+}

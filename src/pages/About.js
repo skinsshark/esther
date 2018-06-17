@@ -1,6 +1,6 @@
 import * as contentful from 'contentful';
 import React, { Component } from 'react';
-
+import ImageLoader from './ImageLoader';
 import dribbble from './images/dribbble.svg';
 import instagram from './images/instagram.svg';
 import vimeo from './images/vimeo.svg';
@@ -50,13 +50,12 @@ class About extends Component {
         return null;
       }
       about = this.state.about[0].fields;
-      console.log(about)
     }
 
     return (
       <section className="about">
         <article className="face">
-          <img
+          <ImageLoader
             alt={about.photo.fields.title}
             src={about.photo.fields.file.url}
           />
