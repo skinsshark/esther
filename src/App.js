@@ -48,7 +48,7 @@ class App extends Component {
         </main>
 
         <footer>
-          website by <a href="https://linkedin.com/in/zhengsharon">sharon zheng</a>
+          website by <a href="https://linkedin.com/in/zhengsharon" target="_blank" rel='noreferrer noopener'>sharon zheng</a>
         </footer>
       </div>
     );

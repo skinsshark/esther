@@ -31,7 +31,8 @@ main {
   display: flex;
   justify-content: center;
   width: 80vw;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  line-height: 2rem;
 }
 
 @media only screen and (max-width: 767px) {

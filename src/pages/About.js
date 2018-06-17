@@ -1,5 +1,10 @@
 import * as contentful from 'contentful';
 import React, { Component } from 'react';
+
+import dribbble from './images/dribbble.svg';
+import instagram from './images/instagram.svg';
+import vimeo from './images/vimeo.svg';
+import sundes from './images/sundes.svg';
 import './About.css';
 
 class About extends Component {
@@ -59,12 +64,36 @@ class About extends Component {
         <article className="bio">
           <div className="links">
             <ul>
-              {about.instagram && <li><a href={about.instagram} target="_blank" rel='noreferrer noopener'>instagram</a></li>}
-              {about.vimeo && <li><a href={about.vimeo} target="_blank" rel='noreferrer noopener'>vimeo</a></li>}
-              {about.dribbble && <li><a href={about.dribbble} target="_blank" rel='noreferrer noopener'>dribbble</a></li>}
-              {about.sundayDesert && <li><a href={about.sundayDesert} target="_blank" rel='noreferrer noopener'>sunday desert</a></li>}
+              {about.instagram &&
+                <li>
+                  <a href={about.instagram} target="_blank" rel='noreferrer noopener'>
+                    <img src={instagram} alt="instagram" />
+                  </a>
+                </li>
+              }
+              {about.vimeo &&
+                <li>
+                  <a href={about.vimeo} target="_blank" rel='noreferrer noopener'>
+                    <img src={vimeo} alt="vimeo" />
+                  </a>
+                </li>
+              }
+              {about.dribbble &&
+                <li>
+                  <a href={about.dribbble} target="_blank" rel='noreferrer noopener'>
+                    <img src={dribbble} alt="dribbble" />
+                  </a>
+                </li>
+              }
+              {about.sundayDesert &&
+                <li>
+                  <a href={about.sundayDesert} target="_blank" rel='noreferrer noopener'>
+                    <img src={sundes} alt="sunday desert" />
+                  </a>
+                </li>
+              }
             </ul>
-            <p><u>{about.email}</u></p>
+            <p className="email"><a href={`mailto:${about.email}`}>{about.email}</a></p>
           </div>
           <p className="desc">{about.bio}</p>
         </article>
