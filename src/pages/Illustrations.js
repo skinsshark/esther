@@ -39,16 +39,14 @@ class Illustrations extends Component {
 
     return (
       <section className="illustrations">
-        {this.state.illustrations.map((illustration, i) => {
-          const id = illustration.fields.image.sys.id;
-          return (
+        {this.state.illustrations.map((illustration, i) => (
             <ImageLoader
-              id={id}
+              alt={illustration.fields.title}
               key={`illustration_${i}`}
               src={illustration.fields.image.fields.file.url}
             />
           )
-        })}
+        )}
       </section>
     );
   }

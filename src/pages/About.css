@@ -5,12 +5,14 @@
 }
 
 .face {
+  display: flex;
   width: 30%;
   margin-left: 10%;
   min-height: 300px;
 }
 
 .face img {
+  align-self: center;
   width: 100%;
 }
 
@@ -54,6 +56,10 @@
   .email {
     margin-bottom: 0;
   }
+}
+
+.desc {
+  margin-bottom: 0;
 }
 
 @media only screen and (max-width: 767px) {
