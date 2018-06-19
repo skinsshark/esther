@@ -1,3 +1,16 @@
+.image-wrapper {
+  background-color: #eee;
+  max-width: 40%;
+  margin: 1rem;
+  line-height: 0;
+  position: relative;
+}
+
+.image-wrapper img {
+  width: 100%;
+  margin: 0;
+}
+
 .image-loader {
   opacity: 0;
   transition: 1s linear opacity;

@@ -2,7 +2,7 @@ import * as contentful from 'contentful';
 import React, { Component } from 'react';
 
 import ImageLoader from './ImageLoader';
-import './Illustrations.css';
+import './Grid.css';
 
 class Illustrations extends Component {
   state = {
@@ -26,19 +26,13 @@ class Illustrations extends Component {
     })
   };
 
-  onImageLoad = id => {
-    const el = document.getElementById(id);
-    console.log(el)
-    el.classList.add('loaded');
-  }
-
   render() {
     if (!this.state.illustrations[0]) {
       return null;
     }
 
     return (
-      <section className="illustrations">
+      <section className="grid">
         {this.state.illustrations.map((illustration, i) => (
             <ImageLoader
               alt={illustration.fields.title}
