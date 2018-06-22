@@ -7,7 +7,8 @@ import './Projects.css';
 
 class Projects extends Component {
   state = {
-    projects: []
+    projects: [],
+    view: 'all'
   };
 
   client = contentful.createClient({
@@ -27,26 +28,36 @@ class Projects extends Component {
     })
   };
 
+  changeView = details => {
+    this.setState({
+      view: 'not'
+    })
+  }
+
   render() {
     if (!this.state.projects[0]) {
       return null;
     }
 
-    return (
+    const display = this.state.view === 'all' ?
       <section className="grid project">
         {this.state.projects.map((proj, i) => (
             <ImageLoader
+              onClick={() => this.changeView(proj.fields)}
               alt={proj.fields.title}
               key={`proj_${i}`}
               src={proj.fields.mainImage.fields.file.url}
               hover={true}
               title={proj.fields.title}
               client={proj.fields.client}
+              details={proj.fields}
             />
           )
         )}
       </section>
-    );
+      : <h1>yes</h1>;
+
+    return display;
   }
 }
 

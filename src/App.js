@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import Projects from './pages/Projects';
 import Illustrations from './pages/Illustrations';
 import About from './pages/About';
-// import DoesNotExist from './pages/DoesNotExist';
 
 import './App.css';
 
@@ -43,6 +42,7 @@ class App extends Component {
             <Route exact={true} path="/" component={Projects} />
             <Route exact={true} path="/illustrations" component={Illustrations} />
             <Route exact={true} path="/about" component={About} />
+            <Route exact={true} path="/p/:project-name" component={Projects} />
             <Redirect from='*' to='/' />
           </Switch>
         </main>
