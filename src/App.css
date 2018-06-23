@@ -1,3 +1,13 @@
+.app {
+  margin-top: 8rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .app {
+    margin-top: 4rem;
+  }
+}
+
 header {
   text-align: center;
 }
@@ -19,6 +29,11 @@ header ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+header ul li a,
+header ul li a:visited {
+  color: #888;
 }
 
 header ul li {

@@ -25,7 +25,7 @@ a:active {
 }
 
 a:hover {
-  color: #ffff00;
+  text-decoration: none;
 }
 
 .visible {
