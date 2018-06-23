@@ -1,0 +1,27 @@
+.proj {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.proj .text {
+  padding: 5rem 10%;
+  text-align: center;
+}
+
+.proj h3,
+.proj .text > p:first-of-type {
+  text-transform: uppercase;
+  color: #00f;
+}
+
+.proj .text > p:first-of-type {
+  font-weight: normal;
+  text-transform: none;
+}
+
+.proj hr {
+  width: 50px;
+  border: 1px solid #ffff00;
+}

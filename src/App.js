@@ -2,6 +2,7 @@ import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
 
 import Projects from './pages/Projects';
+import Proj from './pages/Proj';
 import Illustrations from './pages/Illustrations';
 import About from './pages/About';
 
@@ -42,7 +43,7 @@ class App extends Component {
             <Route exact={true} path="/" component={Projects} />
             <Route exact={true} path="/illustrations" component={Illustrations} />
             <Route exact={true} path="/about" component={About} />
-            <Route exact={true} path="/p/:project-name" component={Projects} />
+            <Route exact={true} path="/p/:projectName" component={Proj} />
             <Redirect from='*' to='/' />
           </Switch>
         </main>

@@ -23,7 +23,7 @@ class Illustrations extends Component {
   setPosts = response => {
     this.setState({
       illustrations: response.items
-    })
+    });
   };
 
   render() {

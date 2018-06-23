@@ -1,13 +1,8 @@
-.grid {
+.grid,
+.frame {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-@media only screen and (max-width: 767px) {
-  .grid .image-wrapper {
-    max-width: none;
-    width: 90%;
-  }
+  text-align: center;
 }

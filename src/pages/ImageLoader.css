@@ -1,9 +1,24 @@
 .image-wrapper {
-  background-color: #eee;
   max-width: 40%;
   margin: 1rem;
-  line-height: 0;
+}
+
+.frame .image-wrapper {
+  max-width: 70%;
+}
+
+.image-wrapper {
+  background-color: #eee;
   position: relative;
+  line-height: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .image-wrapper,
+  .frame .image-wrapper {
+    max-width: none;
+    width: 90%;
+  }
 }
 
 .image-wrapper img {

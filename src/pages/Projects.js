@@ -7,8 +7,7 @@ import './Projects.css';
 
 class Projects extends Component {
   state = {
-    projects: [],
-    view: 'all'
+    projects: []
   };
 
   client = contentful.createClient({
@@ -25,21 +24,15 @@ class Projects extends Component {
   setPosts = response => {
     this.setState({
       projects: response.items
-    })
+    });
   };
-
-  changeView = details => {
-    this.setState({
-      view: 'not'
-    })
-  }
 
   render() {
     if (!this.state.projects[0]) {
       return null;
     }
 
-    const display = this.state.view === 'all' ?
+    return (
       <section className="grid project">
         {this.state.projects.map((proj, i) => (
             <ImageLoader
@@ -55,9 +48,7 @@ class Projects extends Component {
           )
         )}
       </section>
-      : <h1>yes</h1>;
-
-    return display;
+    );
   }
 }
 

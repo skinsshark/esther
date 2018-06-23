@@ -32,7 +32,7 @@ class About extends Component {
   setPosts = response => {
     this.setState({
       about: response.items
-    })
+    });
   };
 
   showCredit = () => {
