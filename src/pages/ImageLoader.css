@@ -1,23 +1,30 @@
-.image-wrapper {
-  max-width: 40%;
-  margin: 1rem;
-}
-
 .frame .image-wrapper {
-  max-width: 70%;
+  max-width: 44.5%;
+  margin: 1.3rem 1rem;
+}
+
+.frame.banner .image-wrapper {
+  max-width: 80%;
+}
+
+.grid .image-wrapper {
+  margin: 1rem 0;
 }
 
 .image-wrapper {
-  background-color: #eee;
   position: relative;
   line-height: 0;
+  background-color: #eee;
+  display: inline-block;
+  width: 100%;
 }
 
 @media only screen and (max-width: 767px) {
   .image-wrapper,
-  .frame .image-wrapper {
+  .frame .image-wrapper,
+  .frame.banner .image-wrapper {
     max-width: none;
-    width: 90%;
+    margin: 1rem 0;
   }
 }
 

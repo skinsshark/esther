@@ -33,7 +33,7 @@ class Projects extends Component {
     }
 
     return (
-      <section className="grid project">
+      <section className="frame project">
         {this.state.projects.map((proj, i) => (
             <ImageLoader
               onClick={() => this.changeView(proj.fields)}
