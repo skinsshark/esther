@@ -39,12 +39,15 @@ class Proj extends Component {
   render() {
     if (!this.state.projects[0]) {
       return null;
-    } else if (!this.state.curr.banner) {
+    } else if (
+      !this.state.curr ||
+      !this.state.curr.banner ||
+      !this.state.curr.images
+    ) {
       return null;
     }
 
     const { curr } = this.state;
-
     return (
       <section className="proj">
         <div className="banner frame">
