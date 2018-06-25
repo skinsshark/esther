@@ -1,7 +1,7 @@
 import * as contentful from 'contentful';
 import React, { Component } from 'react';
-import ImageLoader from './ImageLoader';
 
+import ImageLoader from './ImageLoader';
 import './Grid.css';
 import './Proj.css';
 

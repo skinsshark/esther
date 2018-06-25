@@ -1,10 +1,11 @@
 import * as contentful from 'contentful';
 import React, { Component } from 'react';
+
 import ImageLoader from './ImageLoader';
 import dribbble from './images/dribbble.svg';
 import instagram from './images/instagram.svg';
-import vimeo from './images/vimeo.svg';
 import sundes from './images/sundes.svg';
+import vimeo from './images/vimeo.svg';
 import './About.css';
 
 class About extends Component {

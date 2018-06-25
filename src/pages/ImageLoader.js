@@ -1,9 +1,9 @@
+import lozad from 'lozad';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import lozad from 'lozad';
-import './ImageLoader.css';
 
 import before from './images/empty.png';
+import './ImageLoader.css';
 
 
 class ImageLoader extends Component {

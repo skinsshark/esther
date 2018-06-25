@@ -1,12 +1,13 @@
-import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
+import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
 
-import Projects from './pages/Projects';
-import Proj from './pages/Proj';
-import Illustrations from './pages/Illustrations';
 import About from './pages/About';
-
+import Illustrations from './pages/Illustrations';
+import Proj from './pages/Proj';
+import Projects from './pages/Projects';
 import './App.css';
+
+require('intersection-observer'); //polyfill
 
 class App extends Component {
   render() {
