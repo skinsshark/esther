@@ -28,16 +28,36 @@
   }
 }
 
+.loaded {
+  animation-name: loaded;
+  animation-duration: 1s;
+}
+
+@keyframes loaded {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .image-wrapper img {
   width: 100%;
   margin: 0;
 }
 
 .image-loader {
-  opacity: 0;
+  min-height: 100%;
   transition: 1s linear opacity;
 }
 
-.image-loader.loaded {
-  opacity: 1;
+.ready {
+  opacity: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .image-loader {
+    min-height: 100%;
+  }
 }

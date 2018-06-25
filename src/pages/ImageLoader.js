@@ -1,11 +1,31 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import lozad from 'lozad';
 import './ImageLoader.css';
 
+import before from './images/empty.png';
+
+
 class ImageLoader extends Component {
-  state = {
-    loaded: false,
-    hover: this.props.hover
+  constructor(props) {
+    super(props);
+    this.observer = lozad(
+      '.lozad', {
+        load: (el) => {
+            el.src = el.dataset.src;
+            el.onload = () => {
+              el.classList.remove('ready');
+                el.classList.add('loaded');
+            }
+        }
+    });
+    this.state = {
+      hover: this.props.hover
+    }
+  }
+
+  componentDidMount() {
+    this.observer.observe();
   }
 
   onHoverEnter = url => {
@@ -18,11 +38,8 @@ class ImageLoader extends Component {
     el.classList.remove('hovered');
   }
 
-  onLoad = () => {
-    this.setState({ loaded: true });
-  }
-
   render() {
+    // console.log(this.state.height)
     const url = this.props.title ? this.props.title.toLowerCase().split(' ').join('-') : 'good-question';
     const imageComponent = this.state.hover ? (
       <div className="image-wrapper"
@@ -33,9 +50,9 @@ class ImageLoader extends Component {
       >
         <Link to={`/p/${url}`} className="image-info" id={url}>
           <img
-            className={this.state.loaded ? 'image-loader loaded' : 'image-loader'}
-            onLoad={this.onLoad}
-            src={this.props.src}
+            className='lozad image-loader ready'
+            data-src={this.props.src}
+            src={before}
             alt={this.props.alt}
             onClick={this.props.onClick}
           />
@@ -51,9 +68,9 @@ class ImageLoader extends Component {
       : (
         <div className="image-wrapper">
           <img
-            className={this.state.loaded ? 'image-loader loaded' : 'image-loader'}
-            onLoad={this.onLoad}
-            src={this.props.src}
+            className='lozad image-loader ready'
+            data-src={this.props.src}
+            src={before}
             alt={this.props.alt}
           />
         </div>
