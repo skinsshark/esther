@@ -5,9 +5,19 @@
   flex-wrap: wrap;
 }
 
+.banner {
+  width: 70%;
+}
+
 .proj .text {
   padding: 5rem 10%;
   text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .banner {
+    width: 90%;
+  }
 }
 
 .proj h3,

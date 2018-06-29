@@ -1,33 +1,19 @@
-.frame .image-wrapper {
-  max-width: 44.5%;
-  margin: 1.3rem 1rem;
-}
-
-.frame.banner .image-wrapper {
-  max-width: 50vw;
-}
-
-.grid .image-wrapper {
-  margin: 1rem 0;
-}
-
 .image-wrapper {
-  position: relative;
-  line-height: 0;
   background-color: #eee;
-  display: inline-block;
+  display:inline-block;
+  height: 0;
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.image-wrapper img {
+  position: absolute;
+  transition: 1s linear opacity;
   width: 100%;
 }
 
-@media only screen and (max-width: 767px) {
-  .image-wrapper,
-  .frame .image-wrapper,
-  .frame.banner .image-wrapper {
-    max-width: none;
-    margin: 1rem 0;
-  }
-}
-
+/* Loading Effects */
 .loaded {
   animation-name: loaded;
   animation-duration: 1s;
@@ -42,22 +28,6 @@
   }
 }
 
-.image-wrapper img {
-  width: 100%;
-  margin: 0;
-}
-
-.image-loader {
-  min-height: 100%;
-  transition: 1s linear opacity;
-}
-
 .ready {
   opacity: 0;
-}
-
-@media only screen and (max-width: 767px) {
-  .image-loader {
-    min-height: 100%;
-  }
 }

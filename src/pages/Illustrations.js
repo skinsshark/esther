@@ -36,8 +36,8 @@ class Illustrations extends Component {
         {this.state.illustrations.map((illustration, i) => (
             <ImageLoader
               alt={illustration.fields.title}
+              fields={illustration.fields}
               key={`illustration_${i}`}
-              src={illustration.fields.image.fields.file.url}
             />
           )
         )}

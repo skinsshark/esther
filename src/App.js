@@ -17,7 +17,7 @@ class App extends Component {
         <header>
           <h1>
             <NavLink to="/">
-              esther lok yung cheung
+              esther 樂 容 cheung
             </NavLink>
           </h1>
           <ul>

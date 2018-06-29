@@ -48,11 +48,15 @@ class Proj extends Component {
     }
 
     const { curr } = this.state;
+
     return (
       <section className="proj">
         <div className="banner frame">
           <ImageLoader
-            src={curr.banner.fields.file.url}
+            type='banner'
+            alt={curr.title}
+            key={`proj_${this.props.match.params.projectName}_banner`}
+            fields={curr}
           />
         </div>
         <div className="text">
@@ -69,9 +73,10 @@ class Proj extends Component {
         <article className="grid">
           {curr.images.map((image, i) => (
             <ImageLoader
-              src={image.fields.file.url}
+              type='more'
               alt={image.fields.title}
               key={`proj_${this.props.match.params.projectName}_${i}`}
+              fields={image.fields}
             />
           ))}
         </article>

@@ -42,60 +42,57 @@ class About extends Component {
   }
 
   render() {
-    let about;
-
     if (!this.state.about[0]) {
       return null;
-    } else {
-      if (!this.state.about[0].fields.photo.fields) {
-        return null;
-      }
-      about = this.state.about[0].fields;
     }
+
+    const about = this.state.about[0];
 
     return (
       <section className="about">
         <article className="face">
           <ImageLoader
-            alt={about.photo.fields.title}
-            src={about.photo.fields.file.url}
+            alt={about.fields.photo.fields.title}
+            src={about.fields.photo.fields.file.url}
+            fields={about.fields}
+            type='about'
           />
         </article>
         <article className="bio">
           <div className="links">
             <ul>
-              {about.instagram &&
+              {about.fields.instagram &&
                 <li>
-                  <a href={about.instagram} target="_blank" rel='noreferrer noopener'>
+                  <a href={about.fields.instagram} target="_blank" rel='noreferrer noopener'>
                     <img src={instagram} alt="instagram" />
                   </a>
                 </li>
               }
-              {about.vimeo &&
+              {about.fields.vimeo &&
                 <li>
                   <a href={about.vimeo} target="_blank" rel='noreferrer noopener'>
                     <img src={vimeo} alt="vimeo" />
                   </a>
                 </li>
               }
-              {about.dribbble &&
+              {about.fields.dribbble &&
                 <li>
-                  <a href={about.dribbble} target="_blank" rel='noreferrer noopener'>
+                  <a href={about.fields.dribbble} target="_blank" rel='noreferrer noopener'>
                     <img src={dribbble} alt="dribbble" />
                   </a>
                 </li>
               }
-              {about.sundayDesert &&
+              {about.fields.sundayDesert &&
                 <li>
-                  <a href={about.sundayDesert} target="_blank" rel='noreferrer noopener'>
+                  <a href={about.fields.sundayDesert} target="_blank" rel='noreferrer noopener'>
                     <img src={sundes} alt="sunday desert" />
                   </a>
                 </li>
               }
             </ul>
-            <p className="email"><a href={`mailto:${about.email}`}>{about.email}</a></p>
+            <p className="email"><a href={`mailto:${about.fields.email}`}>{about.fields.email}</a></p>
           </div>
-          <p className="desc">{about.bio}</p>
+          <p className="desc">{about.fields.bio}</p>
         </article>
       </section>
     );
