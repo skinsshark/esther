@@ -1,6 +1,6 @@
 .image-wrapper {
   background-color: #eee;
-  display:inline-block;
+  display: inline-block;
   height: 0;
   position: relative;
   width: 100%;
@@ -11,6 +11,17 @@
   position: absolute;
   transition: 1s linear opacity;
   width: 100%;
+}
+
+.project .image-wrapper {
+  display: block;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.project .image-wrapper img {
+  position: static;
 }
 
 /* Loading Effects */
