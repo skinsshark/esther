@@ -11,7 +11,7 @@ require('intersection-observer'); //polyfill
 
 class App extends Component {
   render() {
-    const activeStyle = {'color': '#00f'};
+    const activeStyle = {'color': '#00f'}; //sync with .colorDef
     return (
       <div className="app">
         <header>

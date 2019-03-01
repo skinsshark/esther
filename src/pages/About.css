@@ -41,7 +41,6 @@
 
 .bio .links ul li img {
   height: 40px;
-  fill: red;
 }
 
 .bio .links ul li:last-child {
@@ -53,7 +52,7 @@
 }
 
 .email a {
-  color: #00f;
+  /* color: #00f; */
 }
 
 @media only screen and (max-width: 992px) {

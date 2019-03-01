@@ -19,7 +19,7 @@ class ImageLoader extends Component {
         }
     });
     this.state = {
-      hover: this.props.hover
+      hover: this.props.hover || false
     }
   }
 
@@ -38,36 +38,62 @@ class ImageLoader extends Component {
   }
 
   render() {
-    let res, buffer, imageSrc;
+    let res, buffer, source;
     const GRID_WIDTH = 100;
 
     if (!this.state.hover) { //not a Project
       switch(this.props.type) {
         case 'about':
-          imageSrc = this.props.fields.photo.fields.file;
+          source = this.props.fields.photo.fields.file;
           break;
         case 'banner':
-          imageSrc = this.props.fields.banner.fields.file;
+          source = this.props.fields.banner.fields.file;
           break;
         case 'more':
-          imageSrc = this.props.fields.file;
+          source = this.props.fields.file;
           break;
         default:
-          imageSrc = this.props.fields.image.fields.file;
+          source = this.props.fields.image.fields.file;
       }
 
-      const { width, height } = imageSrc.details.image;
-      buffer = `${height/width*GRID_WIDTH}%`; // *grid_width
+      let width, height;
+      if (source.details.image) {
+        width = source.details.image.width;
+        height = source.details.image.height;
+        buffer = `${height/width*GRID_WIDTH}%`; // *grid_width
+      }
 
-      res = (
-        <div className="image-wrapper" style={{paddingBottom: buffer}}>
-          <img
-            className="lozad ready"
-            data-src={imageSrc.url}
-            alt={this.props.alt}
-          />
-        </div>
-      );
+      if (source.contentType.includes('video')) {
+        res = (
+          <div className="image-wrapper banner" style={{paddingBottom: buffer}}>
+            <video controls={true}>
+              <source src={source.url} type="video/mp4" />
+              sorry, video ain't working for u
+            </video>
+          </div>
+        );
+      } else if (this.props.type === 'banner') {
+        res = (
+          <div className="banner">
+            <img
+              className="lozad ready"
+              data-src={source.url}
+              alt={this.props.alt}
+            />
+          </div>
+        );
+      } else {
+        res = (
+          <div className="image-wrapper" style={{paddingBottom: buffer}}>
+            <img
+              className="lozad ready"
+              data-src={source.url}
+              alt={this.props.alt}
+            />
+          </div>
+        );
+      }
+
     } else {
       const url = this.props.fields.title.toLowerCase().split(' ').join('-');
       const { width, height } = this.props.fields.coverPhoto.fields.file.details.image;

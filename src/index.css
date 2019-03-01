@@ -28,6 +28,10 @@ a:hover {
   text-decoration: none;
 }
 
+:global(.colorDef) {
+  color: #00f;
+}
+
 .visible {
   display: block;
 }

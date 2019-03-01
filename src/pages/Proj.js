@@ -51,11 +51,9 @@ class Proj extends Component {
 
     return (
       <section className="proj">
-        <div className="banner frame">
+        <div className="frame">
           <ImageLoader
             type='banner'
-            alt={curr.title}
-            key={`proj_${this.props.match.params.projectName}_banner`}
             fields={curr}
           />
         </div>

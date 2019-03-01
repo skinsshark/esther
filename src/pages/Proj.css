@@ -6,7 +6,13 @@
 }
 
 .banner {
-  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.banner img,
+.banner video {
+  width: 45vw;
 }
 
 .proj .text {
@@ -15,8 +21,9 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .banner {
-    width: 90%;
+  .banner img,
+  .banner video {
+    width: 90vw;
   }
 }
 
