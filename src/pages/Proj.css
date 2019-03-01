@@ -15,15 +15,45 @@
   width: 45vw;
 }
 
+/* IFrame styling - default 3000 and 1688 */
+
+iframe {
+  zoom: 0.2;
+}
+
 .proj .text {
   padding: 5rem 10%;
   text-align: center;
+}
+
+@media only screen and (min-width: 1600px) {
+  iframe {
+    zoom: 0.3;
+  }
 }
 
 @media only screen and (max-width: 767px) {
   .banner img,
   .banner video {
     width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  iframe {
+    zoom: 0.1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  iframe {
+    zoom: 0.15;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  iframe {
+    zoom: 0.11;
   }
 }
 

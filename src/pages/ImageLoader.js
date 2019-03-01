@@ -72,7 +72,24 @@ class ImageLoader extends Component {
             </video>
           </div>
         );
-      } else if (this.props.type === 'banner') {
+      } else if (source.contentType.includes('text')) { // prob a vimeo video
+        const reg = /[//](.*[/])(.*)/g;
+        const videoId = reg.exec(source.url)[2];
+
+        res = (
+          <div className="banner">
+            <iframe
+              src={`https://player.vimeo.com/video/${videoId}?color=ff0179&title=0&byline=0`}
+              width="3000"
+              height="1750"
+              frameBorder="0"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+              allowFullScreen="true">
+            </iframe>
+          </div>
+        );
+      } else if (this.props.type === 'banner') { // regular image banner
         res = (
           <div className="banner">
             <img

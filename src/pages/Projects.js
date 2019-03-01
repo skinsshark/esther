@@ -32,8 +32,6 @@ class Projects extends Component {
       return null;
     }
 
-    console.log(this.state.projects)
-
     return (
       <section className="grid project">
         {this.state.projects.map((proj, i) => (
