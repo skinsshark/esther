@@ -1,6 +1,6 @@
 import * as contentful from 'contentful';
 import React, { Component } from 'react';
-
+import Masonry from 'react-masonry-component';
 import ImageLoader from './ImageLoader';
 import './Grid.css';
 import './Proj.css';
@@ -68,7 +68,7 @@ class Proj extends Component {
           </p>
           <p>{curr.description}</p>
         </div>
-        <article className="grid">
+        <Masonry options={{columnWidth: 2}} className="grid">
           {curr.images.map((image, i) => (
             <ImageLoader
               type='more'
@@ -77,7 +77,7 @@ class Proj extends Component {
               fields={image.fields}
             />
           ))}
-        </article>
+        </Masonry>
       </section>
     );
   }

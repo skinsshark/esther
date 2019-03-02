@@ -80,6 +80,7 @@ class ImageLoader extends Component {
           <div className="banner">
             <iframe
               src={`https://player.vimeo.com/video/${videoId}?color=ff0179&title=0&byline=0`}
+              title={source.fileName}
               width="3000"
               height="1750"
               frameBorder="0"
