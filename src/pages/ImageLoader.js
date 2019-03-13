@@ -1,3 +1,4 @@
+import * as contentful from 'contentful';
 import lozad from 'lozad';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -18,14 +19,31 @@ class ImageLoader extends Component {
             }
         }
     });
+
     this.state = {
+      colors: [],
       hover: this.props.hover || false
     }
   }
 
+  client = contentful.createClient({
+    space: 'f6ynskpmf4ta',
+    accessToken: 'b63c06a8f7b120e05519f70b6fd2cbfa96c6bb4b505621ab9dbbc5b44c2e15f7'
+  });
+
   componentDidMount() {
     this.observer.observe();
+    this.fetchColors().then(this.setColors)
+    .then(()=>console.log(this.state.colors));
   }
+
+  fetchColors = () => this.client.getEntries({'content_type': 'colors'});
+
+  setColors = response => {
+    this.setState({
+      colors: response.items[0].fields
+    });
+  };
 
   onHoverEnter = url => {
     const el = document.getElementById(url);
@@ -61,6 +79,10 @@ class ImageLoader extends Component {
         width = source.details.image.width;
         height = source.details.image.height;
         buffer = `${height/width*GRID_WIDTH}%`; // *grid_width
+      }
+
+      if (!this.state.colors) {
+        return null;
       }
 
       if (source.contentType.includes('video')) {
@@ -135,10 +157,15 @@ class ImageLoader extends Component {
               data-src={this.props.fields.coverPhoto.fields.file.url}
               alt={this.props.alt}
             />
-            <article>
+            <article style={{
+              backgroundColor: `#${this.state.colors.projectBG}`,
+              color: `#${this.state.colors.projectText}`
+            }}>
               <div>
                 <p>{this.props.fields.title}</p>
-                <hr/>
+                <hr style={{
+                  borderColor: `#${this.state.colors.projectText}`
+                }}/>
                 <p>{this.props.fields.client}</p>
               </div>
             </article>
