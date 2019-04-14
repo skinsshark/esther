@@ -5,6 +5,16 @@
   flex-wrap: wrap;
 }
 
+.proj .grid {
+  width: 80%;
+}
+
+@media only screen and (max-width: 767px) {
+  .proj .grid {
+    width: 100%;
+  }
+}
+
 .banner {
   text-align: center;
   margin: 0 auto;
@@ -60,7 +70,7 @@ iframe {
 .proj h3,
 .proj .text > p:first-of-type {
   text-transform: uppercase;
-  color: #00f;
+  color: #56c292;
 }
 
 .proj .text > p:first-of-type {
@@ -70,5 +80,5 @@ iframe {
 
 .proj hr {
   width: 50px;
-  border: 1px solid #ffff00;
+  border: 1px solid rgb(238, 104, 116);
 }

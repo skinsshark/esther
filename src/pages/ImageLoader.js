@@ -33,8 +33,7 @@ class ImageLoader extends Component {
 
   componentDidMount() {
     this.observer.observe();
-    this.fetchColors().then(this.setColors)
-    .then(()=>console.log(this.state.colors));
+    this.fetchColors().then(this.setColors);
   }
 
   fetchColors = () => this.client.getEntries({'content_type': 'colors'});
@@ -95,9 +94,9 @@ class ImageLoader extends Component {
           </div>
         );
       } else if (source.contentType.includes('text')) { // prob a vimeo video
+        console.log('ya')
         const reg = /[//](.*[/])(.*)/g;
         const videoId = reg.exec(source.url)[2];
-
         res = (
           <div className="banner">
             <iframe

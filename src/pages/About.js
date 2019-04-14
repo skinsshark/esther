@@ -93,6 +93,7 @@ class About extends Component {
             <p className="email"><a className="colorDef" href={`mailto:${about.fields.email}`}>{about.fields.email}</a></p>
           </div>
           <p className="desc">{about.fields.bio}</p>
+          <p className="email but-really-this-is-cv"><a className="colorDef" href={`#temp`}>CV</a></p>
         </article>
       </section>
     );

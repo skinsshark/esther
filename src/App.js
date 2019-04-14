@@ -3,6 +3,7 @@ import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
 
 import About from './pages/About';
 import Illustrations from './pages/Illustrations';
+import Sketchbook from './pages/Sketchbook';
 import Proj from './pages/Proj';
 import Projects from './pages/Projects';
 import './App.css';
@@ -11,13 +12,13 @@ require('intersection-observer'); //polyfill
 
 class App extends Component {
   render() {
-    const activeStyle = {'color': '#00f'}; //sync with .colorDef
+    const activeStyle = {'color': '#56c292'}; //sync with .colorDef
     return (
       <div className="app">
         <header>
           <h1>
             <NavLink to="/">
-              esther 樂 容 cheung
+              esther cheung
             </NavLink>
           </h1>
           <ul>
@@ -32,6 +33,11 @@ class App extends Component {
                 </NavLink>
               </li>
             <li>
+                <NavLink to="/sketchbook" activeStyle={activeStyle}>
+                  sketchbook
+                </NavLink>
+              </li>
+            <li>
                 <NavLink to="/about" activeStyle={activeStyle}>
                   about
                 </NavLink>
@@ -43,6 +49,7 @@ class App extends Component {
           <Switch>
             <Route exact={true} path="/" component={Projects} />
             <Route exact={true} path="/illustrations" component={Illustrations} />
+            <Route exact={true} path="/sketchbook" component={Sketchbook} />
             <Route exact={true} path="/about" component={About} />
             <Route exact={true} path="/p/:projectName" component={Proj} />
             <Redirect from='*' to='/' />

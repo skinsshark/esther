@@ -32,23 +32,23 @@ class Proj extends Component {
     const curr = this.state.projects.find(p => (
       p.fields.title.toLowerCase().split(' ').join('-') === this.props.match.params.projectName
     ));
-
+console.log(curr)
     this.setState({ curr: curr.fields });
   }
 
   render() {
+    const isDemoreel = this.state.curr.title === 'Demoreel';
     if (!this.state.projects[0]) {
       return null;
     } else if (
       !this.state.curr ||
       !this.state.curr.banner ||
-      !this.state.curr.images
+      (!this.state.curr.images && !isDemoreel)
     ) {
       return null;
     }
 
     const { curr } = this.state;
-
     return (
       <section className="proj">
         <div className="frame">
@@ -57,19 +57,21 @@ class Proj extends Component {
             fields={curr}
           />
         </div>
-        <div className="text">
-          <h3>{curr.title}</h3>
-          <hr />
-          <p>
-            {curr.role && `${curr.role}`}
-            {curr.role && curr.company && `, `}
-            {curr.company && `${curr.company}`}
-            {curr.client && `, ${curr.client}`}
-          </p>
-          <p>{curr.description}</p>
-        </div>
+        {!isDemoreel && (
+          <div className="text">
+            <h3>{curr.title}</h3>
+            <hr />
+            <p>
+              {curr.role && `${curr.role}`}
+              {curr.role && curr.company && `, `}
+              {curr.company && `${curr.company}`}
+              {curr.client && `, ${curr.client}`}
+            </p>
+            <p>{curr.description}</p>
+          </div>
+        )}
         <Masonry options={{columnWidth: 2}} className="grid">
-          {curr.images.map((image, i) => (
+          {!isDemoreel && curr.images.map((image, i) => (
             <ImageLoader
               type='more'
               alt={image.fields.title}

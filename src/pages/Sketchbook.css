@@ -1,0 +1,10 @@
+.grid.sketchbook {
+  column-count: 1; /* or remove */
+  width: 80%;
+}
+
+@media only screen and (max-width: 787px) {
+  .grid.sketchbook {
+    width: 100%;
+  }
+}

@@ -51,8 +51,8 @@
   margin-bottom: 3rem;
 }
 
-.email a {
-  /* color: #00f; */
+.email.but-really-this-is-cv {
+  margin-bottom: 0;
 }
 
 @media only screen and (max-width: 992px) {

@@ -7,7 +7,8 @@ import './Projects.css';
 
 class Projects extends Component {
   state = {
-    projects: []
+    projects: [],
+    demoreel: null,
   };
 
   client = contentful.createClient({
@@ -22,19 +23,32 @@ class Projects extends Component {
   fetchPosts = () => this.client.getEntries({'content_type': 'project'});
 
   setPosts = response => {
+    Array.from(response.items).map((proj, i) => {
+      if (proj.fields.title === 'Demoreel') {
+        this.setState({ demoreel: proj });
+        response.items.splice(i, 1);
+      }
+    });
+
     this.setState({
       projects: response.items
     });
   };
 
   render() {
-    if (!this.state.projects[0]) {
+    if (!this.state.projects[0] && !this.state.demoreel) {
       return null;
     }
-
+console.log(this.state.demoreel)
     return (
       <section className="grid project">
-        {this.state.projects.map((proj, i) => (
+        <ImageLoader
+          alt={this.state.demoreel.fields.title}
+          fields={this.state.demoreel.fields}
+          hover={true}
+        />
+        {this.state.projects.map((proj, i) => {
+          return (
             <ImageLoader
               alt={proj.fields.title}
               fields={proj.fields}
@@ -42,6 +56,7 @@ class Projects extends Component {
               key={`proj_${i}`}
             />
           )
+        }
         )}
       </section>
     );
