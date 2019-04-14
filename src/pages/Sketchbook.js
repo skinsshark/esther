@@ -2,7 +2,6 @@ import * as contentful from 'contentful';
 import React, { Component } from 'react';
 
 import ImageLoader from './ImageLoader';
-import './Sketchbook.css';
 
 class Sketchbook extends Component {
   state = {
