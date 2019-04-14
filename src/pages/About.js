@@ -70,7 +70,7 @@ class About extends Component {
               }
               {about.fields.vimeo &&
                 <li>
-                  <a href={about.vimeo} target="_blank" rel='noreferrer noopener'>
+                  <a href={about.fields.vimeo} target="_blank" rel='noreferrer noopener'>
                     <img src={vimeo} alt="vimeo" />
                   </a>
                 </li>
@@ -93,7 +93,9 @@ class About extends Component {
             <p className="email"><a className="colorDef" href={`mailto:${about.fields.email}`}>{about.fields.email}</a></p>
           </div>
           <p className="desc">{about.fields.bio}</p>
-          <p className="email but-really-this-is-cv"><a className="colorDef" href={`#temp`}>CV</a></p>
+          <p className="email but-really-this-is-cv">
+            <a rel="noopener noreferrer" target="_blank" className="colorDef" href={about.fields.resume.fields.file.url}>CV</a>
+          </p>
         </article>
       </section>
     );

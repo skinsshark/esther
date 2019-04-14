@@ -28,7 +28,10 @@ a:hover {
   text-decoration: none;
 }
 
-:global(.colorDef) {
+:global(.colorDef),
+a.colorDef:visited,
+a.colorDef:active,
+a.colorDef:focus {
   color: #56c292;
 }
 
