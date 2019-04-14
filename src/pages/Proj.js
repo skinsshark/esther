@@ -56,20 +56,18 @@ console.log(curr)
             type='banner'
             fields={curr}
           />
+        <div className="text">
+          <h3>{curr.title}</h3>
+          <hr />
+          <p>
+            {curr.role && `${curr.role}`}
+            {curr.role && curr.company && `, `}
+            {curr.company && `${curr.company}`}
+            {curr.client && `, ${curr.client}`}
+          </p>
+          <p>{curr.description}</p>
         </div>
-        {!isDemoreel && (
-          <div className="text">
-            <h3>{curr.title}</h3>
-            <hr />
-            <p>
-              {curr.role && `${curr.role}`}
-              {curr.role && curr.company && `, `}
-              {curr.company && `${curr.company}`}
-              {curr.client && `, ${curr.client}`}
-            </p>
-            <p>{curr.description}</p>
-          </div>
-        )}
+        </div>
         <Masonry options={{columnWidth: 2}} className="grid">
           {!isDemoreel && curr.images.map((image, i) => (
             <ImageLoader
