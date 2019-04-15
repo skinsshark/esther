@@ -55,10 +55,6 @@ class App extends Component {
             <Redirect from='*' to='/' />
           </Switch>
         </main>
-
-        <footer>
-          website by <a href="https://linkedin.com/in/zhengsharon" target="_blank" rel='noreferrer noopener'>sharon zheng</a>
-        </footer>
       </div>
     );
   }
