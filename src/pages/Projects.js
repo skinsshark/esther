@@ -39,7 +39,7 @@ class Projects extends Component {
     if (!this.state.projects[0] && !this.state.demoreel) {
       return null;
     }
-console.log(this.state.demoreel)
+
     return (
       <section className="grid project">
         <ImageLoader

@@ -32,7 +32,7 @@ class Proj extends Component {
     const curr = this.state.projects.find(p => (
       p.fields.title.toLowerCase().split(' ').join('-') === this.props.match.params.projectName
     ));
-console.log(curr)
+
     this.setState({ curr: curr.fields });
   }
 
@@ -49,6 +49,7 @@ console.log(curr)
     }
 
     const { curr } = this.state;
+
     return (
       <section className="proj">
         <div className="frame">

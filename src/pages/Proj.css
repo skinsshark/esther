@@ -32,6 +32,7 @@ iframe {
 }
 
 .proj .text {
+  white-space: pre-wrap;
   padding: 5rem 10%;
   text-align: center;
 }
