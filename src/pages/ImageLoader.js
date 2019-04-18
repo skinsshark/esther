@@ -5,20 +5,24 @@ import { Link } from 'react-router-dom';
 
 import './ImageLoader.css';
 
-
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 class ImageLoader extends Component {
   constructor(props) {
     super(props);
-    this.observer = lozad(
-      '.lozad', {
-        load: (el) => {
-            el.src = el.dataset.src;
-            el.onload = () => {
-              el.classList.remove('ready');
-                el.classList.add('loaded');
-            }
-        }
-    });
+    if (!isSafari) {
+      this.observer = lozad(
+        '.lozad', {
+          load: (el) => {
+              el.src = el.dataset.src;
+              el.onload = () => {
+                el.classList.remove('ready');
+                  el.classList.add('loaded');
+              }
+          }
+      });
+    } else {
+      console.log('safari')
+    }
 
     this.state = {
       colors: [],
@@ -32,7 +36,9 @@ class ImageLoader extends Component {
   });
 
   componentDidMount() {
-    this.observer.observe();
+    if (!isSafari) {
+      this.observer.observe();
+    }
     this.fetchColors().then(this.setColors);
   }
 
@@ -114,7 +120,8 @@ class ImageLoader extends Component {
         res = (
           <div className="banner">
             <img
-              className="lozad ready"
+              className={isSafari ? "saf" : "lozad ready"}
+              src={source.url}
               data-src={source.url}
               alt={this.props.alt}
             />
@@ -124,7 +131,8 @@ class ImageLoader extends Component {
         res = (
           <div className="image-wrapper" style={{paddingBottom: buffer}}>
             <img
-              className="lozad ready"
+              className={isSafari ? "saf" : "lozad ready"}
+              src={source.url}
               data-src={source.url}
               alt={this.props.alt}
             />
@@ -151,7 +159,8 @@ class ImageLoader extends Component {
             id={url}
           >
             <img
-              className="lozad ready"
+              className={isSafari ? "saf" : "lozad ready"}
+              src={this.props.fields.coverPhoto.fields.file.url}
               data-src={this.props.fields.coverPhoto.fields.file.url}
               alt={this.props.alt}
             />
