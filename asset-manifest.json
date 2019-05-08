@@ -1,10 +1,11 @@
 {
-  "main.css": "static/css/main.64db5d5e.css",
-  "main.css.map": "static/css/main.64db5d5e.css.map",
-  "main.js": "static/js/main.00a708af.js",
-  "main.js.map": "static/js/main.00a708af.js.map",
+  "main.css": "static/css/main.64230f83.css",
+  "main.css.map": "static/css/main.64230f83.css.map",
+  "main.js": "static/js/main.db41d75f.js",
+  "main.js.map": "static/js/main.db41d75f.js.map",
   "static/media/dribbble.svg": "static/media/dribbble.e897bd22.svg",
   "static/media/instagram.svg": "static/media/instagram.4bb34c9a.svg",
+  "static/media/linkedin.svg": "static/media/linkedin.4aee5596.svg",
   "static/media/sundes.svg": "static/media/sundes.8bdf123e.svg",
   "static/media/vimeo.svg": "static/media/vimeo.e2977121.svg"
 }
