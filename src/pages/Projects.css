@@ -9,8 +9,8 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgb(245, 175, 83); /* may be overridden by contentful */
-  color: rgb(131, 30, 87); /* may be overridden by contentful */
+  background-color: #56c292; /* may be overridden by contentful */
+  color: #fff; /* may be overridden by contentful */
   opacity: 0;
   transition: 0.15s linear opacity;
   display: flex;
