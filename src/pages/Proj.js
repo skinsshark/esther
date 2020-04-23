@@ -1,4 +1,7 @@
 import * as contentful from 'contentful';
+import { INLINES } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
 import React, { Component } from 'react';
 import Masonry from 'react-masonry-component';
 import ImageLoader from './ImageLoader';
@@ -34,7 +37,15 @@ class Proj extends Component {
     ));
 
     this.setState({ curr: curr.fields });
-  }
+  };
+
+  options = {
+    renderNode: {
+      [INLINES.HYPERLINK]: (node) => {
+        return <a href={node.data.uri} target="_blank" rel="noopener noreferrer">{node.content[0].value}</a>;
+      }
+    }
+  };
 
   render() {
     const isDemoreel = this.state.curr.title === 'Demoreel';
@@ -66,7 +77,7 @@ class Proj extends Component {
             {curr.company && `${curr.company}`}
             {curr.client && `, ${curr.client}`}
           </p>
-          <p>{curr.description}</p>
+          {documentToReactComponents(curr.description, this.options)}
         </div>
         </div>
         <Masonry options={{columnWidth: 2}} className="grid">
