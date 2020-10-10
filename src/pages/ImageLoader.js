@@ -26,7 +26,8 @@ class ImageLoader extends Component {
 
     this.state = {
       colors: [],
-      hover: this.props.hover || false
+      hover: this.props.hover || false,
+      smallWindowWidth: window.innerWidth < 768
     }
   }
 
@@ -40,6 +41,15 @@ class ImageLoader extends Component {
       this.observer.observe();
     }
     this.fetchColors().then(this.setColors);
+
+    window.addEventListener('resize', () => {
+      if ((window.innerWidth < 768 && !this.state.smallWindowWidth)
+      || (window.innerWidth >= 768 && this.state.smallWindowWidth)) {
+        this.setState({
+          smallWindowWidth: window.innerWidth < 768
+        })
+      }
+    })
   }
 
   fetchColors = () => this.client.getEntries({'content_type': 'colors'});
@@ -67,6 +77,7 @@ class ImageLoader extends Component {
     if (!this.state.hover) { //not a Project
       switch(this.props.type) {
         case 'about':
+        case 'photography':
           source = this.props.fields.photo.fields.file;
           break;
         case 'banner':
@@ -80,10 +91,11 @@ class ImageLoader extends Component {
       }
 
       let width, height;
+      const isVertPhoto = this.props.type === 'photography' && this.props.fields.isVertical;
       if (source.details.image) {
         width = source.details.image.width;
         height = source.details.image.height;
-        buffer = `${height/width*GRID_WIDTH}%`; // *grid_width
+        buffer = isVertPhoto && !this.state.smallWindowWidth ? `${height/width*40}%` : `${height/width*GRID_WIDTH}%`; // *grid_width
       }
 
       if (!this.state.colors) {
@@ -129,14 +141,23 @@ class ImageLoader extends Component {
         );
       } else {
         res = (
-          <div className="image-wrapper" style={{paddingBottom: buffer}}>
-            <img
-              className={isSafari ? "saf" : "lozad ready"}
-              src={source.url}
-              data-src={source.url}
-              alt={this.props.alt}
-            />
-          </div>
+          <React.Fragment>
+            <div className={
+              isVertPhoto ?
+              "image-wrapper vert-photography" : "image-wrapper"
+            } style={{paddingBottom: buffer}}>
+              <img
+                className={isSafari ? "saf" : "lozad ready"}
+                src={source.url}
+                data-src={source.url}
+                alt={this.props.alt}
+              />
+            </div>
+            {this.props.type === 'photography' &&
+             this.props.fields.caption != null
+             ? <Caption caption={this.props.fields.caption}/>
+             : null}
+          </React.Fragment>
         );
       }
 
@@ -184,5 +205,10 @@ class ImageLoader extends Component {
     return res;
   }
 }
+
+function Caption(props) {
+  return <div className="caption-wrapper">{props.caption}</div>
+}
+
 
 export default ImageLoader;

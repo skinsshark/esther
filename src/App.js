@@ -6,6 +6,7 @@ import Illustrations from './pages/Illustrations';
 import Sketchbook from './pages/Sketchbook';
 import Proj from './pages/Proj';
 import Projects from './pages/Projects';
+import Photography from './pages/Photography';
 import './App.css';
 
 require('intersection-observer'); //polyfill
@@ -23,25 +24,30 @@ class App extends Component {
           </h1>
           <ul>
             <li>
-                <NavLink to="/" exact={true} activeStyle={activeStyle}>
-                  projects
-                </NavLink>
-              </li>
+              <NavLink to="/" exact={true} activeStyle={activeStyle}>
+                projects
+              </NavLink>
+            </li>
             <li>
-                <NavLink to="/illustrations" activeStyle={activeStyle}>
-                  illustrations
-                </NavLink>
-              </li>
+              <NavLink to="/illustrations" activeStyle={activeStyle}>
+                illustrations
+              </NavLink>
+            </li>
             <li>
-                <NavLink to="/sketchbook" activeStyle={activeStyle}>
-                  sketchbook
-                </NavLink>
-              </li>
+              <NavLink to="/sketchbook" activeStyle={activeStyle}>
+                sketchbook
+              </NavLink>
+            </li>
             <li>
-                <NavLink to="/about" activeStyle={activeStyle}>
-                  about
-                </NavLink>
-              </li>
+              <NavLink to="/photography" activeStyle={activeStyle}>
+                photography
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" activeStyle={activeStyle}>
+                about
+              </NavLink>
+            </li>
           </ul>
         </header>
 
@@ -51,6 +57,7 @@ class App extends Component {
             <Route exact={true} path="/illustrations" component={Illustrations} />
             <Route exact={true} path="/sketchbook" component={Sketchbook} />
             <Route exact={true} path="/about" component={About} />
+            <Route exact={true} path="/photography" component={Photography} />
             <Route exact={true} path="/p/:projectName" component={Proj} />
             <Redirect from='*' to='/' />
           </Switch>

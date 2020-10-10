@@ -23,12 +23,13 @@ class Projects extends Component {
   fetchPosts = () => this.client.getEntries({'content_type': 'project'});
 
   setPosts = response => {
-    Array.from(response.items).map((proj, i) => {
+    for (let i in Array.from(response.items)) {
+      const proj = response.items[i];
       if (proj.fields.title === 'Demoreel') {
         this.setState({ demoreel: proj });
         response.items.splice(i, 1);
       }
-    });
+    }
 
     this.setState({
       projects: response.items

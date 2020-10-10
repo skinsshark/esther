@@ -1,0 +1,24 @@
+.grid.one-col {
+  columns: 1;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.vert-photography {
+  width: 40%;
+}
+
+.caption-wrapper {
+  margin-bottom: 50px;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .grid.one-col,
+  .vert-photography {
+    width: 100%;
+  }
+}

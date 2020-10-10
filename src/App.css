@@ -28,7 +28,7 @@ header h1 a:hover {
 header ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0 90px;
 }
 
 header ul li a,
