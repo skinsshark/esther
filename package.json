@@ -2,7 +2,7 @@
   "name": "esther",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://esther-cheung.com/",
+  "homepage": "https://esther-cheung.com/",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
