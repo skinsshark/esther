@@ -145,7 +145,9 @@ class ImageLoader extends Component {
             <div className={
               isVertPhoto ?
               "image-wrapper vert-photography" : "image-wrapper"
-            } style={{paddingBottom: buffer}}>
+            } style={{
+              paddingBottom: buffer,
+              marginBottom: 30}}>
               <img
                 className={isSafari ? "saf" : "lozad ready"}
                 src={source.url}
@@ -207,7 +209,7 @@ class ImageLoader extends Component {
 }
 
 function Caption(props) {
-  return <div className="caption-wrapper">{props.caption}</div>
+  return <div className={props.caption.length > 0 ? `caption-wrapper` : ''}>{props.caption}</div>
 }
 
 
