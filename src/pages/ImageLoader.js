@@ -164,7 +164,7 @@ class ImageLoader extends Component {
       }
 
     } else {
-      const url = this.props.fields.title.toLowerCase().split(' ').join('-');
+      const url = this.props.fields.title.toLowerCase().replace(/[^\w\s]/gi, '').split(' ').join('-');
       const { width, height } = this.props.fields.coverPhoto.fields.file.details.image;
       buffer = `${height/width*GRID_WIDTH}%`; // *grid_width
 

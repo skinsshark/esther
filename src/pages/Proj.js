@@ -33,7 +33,7 @@ class Proj extends Component {
 
   setCurrent = () => {
     const curr = this.state.projects.find(p => (
-      p.fields.title.toLowerCase().split(' ').join('-') === this.props.match.params.projectName
+      p.fields.title.toLowerCase().replace(/[^\w\s]/gi, '').split(' ').join('-') === this.props.match.params.projectName
     ));
 
     this.setState({ curr: curr.fields });
