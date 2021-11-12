@@ -1,4 +1,5 @@
 .grid {
+  overflow: hidden;
   width: 100%;
   columns: 2;
 }

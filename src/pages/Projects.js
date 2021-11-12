@@ -25,7 +25,7 @@ class Projects extends Component {
   setPosts = response => {
     for (let i in Array.from(response.items)) {
       const proj = response.items[i];
-      if (proj.fields.title === 'Demoreel') {
+      if (proj && proj.fields && proj.fields.title === 'Demoreel') {
         this.setState({ demoreel: proj });
         response.items.splice(i, 1);
       }
